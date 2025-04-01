@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Label?>
+<VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.javafxprojrct.LoginController" prefHeight="400.0" prefWidth="600.0">
+    <VBox alignment="TOP_CENTER">
+        <Label text="Konto erstellung" style="-fx-font-size: 35px; -fx-padding: 80px;" />
+    </VBox>
+    <VBox alignment="CENTER">
+        <HBox alignment="CENTER" style="-fx-padding: 10px;">
+            <Label text="Name: " style="-fx-font-size: 15px;" />
+            <TextField fx:id="nameFeld" maxHeight="50.0" maxWidth="150.0" />
+        </HBox>
+
+        <HBox alignment="CENTER" style="-fx-padding: 10px;">
+            <Label text="Password: " style="-fx-font-size: 15px;" />
+            <TextField fx:id="passwordFeld" maxHeight="50.0" maxWidth="150.0" />
+        </HBox>
+
+        <Label fx:id="loginFehler" style="-fx-font-size: 12px; -fx-text-fill: red; -fx-padding: 10px;" />
+
+        <HBox alignment="CENTER" style="-fx-padding: 10px;">
+            <HBox style="-fx-padding: 10px;">
+                <Button text="Erstellen" onAction="#submit"/>
+            </HBox>
+            <HBox style="-fx-padding: 10px;">
+                <Button text="Cancel" onAction="#cancel"/>
+            </HBox>
+        </HBox>
+    </VBox>
+</VBox>

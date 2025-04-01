@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.TextField?>
+<VBox spacing="20.0" xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.javafxprojrct.BibliothekController">
+    <VBox alignment="TOP_RIGHT" style="-fx-padding: 15px;">
+        <Button text="Log out" onAction="#logout"/>
+    </VBox>
+
+    <VBox alignment="CENTER" fx:id="adminBox" visible="false">
+        <HBox alignment="CENTER">
+            <Label text="Buch name:" />
+            <TextField fx:id="buchName" />
+            <Button text="Add" onAction="#addBuch" />
+        </HBox>
+    </VBox>
+
+    <VBox alignment="CENTER">
+        <Label text="Ihre Bücher" style="-fx-font-size: 15px; -fx-padding: 15px;" />
+        <TableView fx:id="benutzerBuchTable">
+            <columns>
+                <TableColumn fx:id="benutzerBuchIdColumn" text="Nummer" />
+                <TableColumn fx:id="benutzerBuchNameColumn" text="Name" />
+                <TableColumn fx:id="benutzerBuchButtonColumn" text="Action" />
+            </columns>
+        </TableView>
+
+        <Label text="Verfügbare Bücher" style="-fx-font-size: 15px; -fx-padding: 15px;" />
+        <TableView fx:id="buchTable">
+            <columns>
+                <TableColumn fx:id="buchIdColumn" text="Nummer" />
+                <TableColumn fx:id="buchNameColumn" text="Name" />
+                <TableColumn fx:id="buchButtonColumn" />
+            </columns>
+        </TableView>
+    </VBox>
+</VBox>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.javafxprojrct.EingangController">
+    <VBox alignment="TOP_RIGHT" style="-fx-padding: 15px;">
+        <Button text="Konto erstellen" onAction="#goToLogin"/>
+    </VBox>
+
+    <VBox alignment="CENTER">
+        <HBox alignment="CENTER" style="-fx-padding: 10px;">
+            <Label text="Name: " style="-fx-font-size: 15px;" />
+            <TextField fx:id="nameFeld" maxHeight="50.0" maxWidth="150.0" />
+        </HBox>
+
+        <HBox alignment="CENTER" style="-fx-padding: 10px;">
+            <Label text="Password: " style="-fx-font-size: 15px;" />
+            <TextField fx:id="passwordFeld" maxHeight="50.0" maxWidth="150.0" />
+        </HBox>
+
+        <Label fx:id="eingangFehler" style="-fx-font-size: 12px; -fx-text-fill: red; -fx-padding: 10px;" />
+        <Button text="Submit" onAction="#submit"/>
+    </VBox>
+</VBox>
