@@ -48,6 +48,10 @@ public class LoginController {
         String name = nameFeld.getText();
         String password = passwordFeld.getText();
 
+        BcryptFunction bcrypt = BcryptFunction.getInstance(Bcrypt.B, 12);
+
+        Hash hashPassword = Password.hash(password).addPepper("password").with(bcrypt);
+
         nameFeld.setText("");
         passwordFeld.setText("");
 
@@ -58,8 +62,8 @@ public class LoginController {
 
         if (!name.isBlank() && !password.isBlank()) {
             if (bibliothekDatenbankImpl.getBenutzerBeiName(name) == null) {
-                if (bibliothekDatenbankImpl.checkPassword(name, password) == null) {
-                    goToBibliothek(name, password);
+                if (bibliothekDatenbankImpl.checkPassword(name, hashPassword.getResult()) == null) {
+                    goToBibliothek(name, hashPassword.getResult());
                 } else {
                     loginFehler.setText("Passwort.");
                 }

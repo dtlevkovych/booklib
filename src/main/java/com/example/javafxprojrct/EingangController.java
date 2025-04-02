@@ -77,6 +77,12 @@ public class EingangController {
             return;
         }
 
+        String benutzerPassword = bibliothekDatenbankImpl.getBenutzerBeiName(name).getPassword();
+
+        BcryptFunction bcrypt = BcryptFunction.getInstance(Bcrypt.B, 12);
+
+        boolean checkPassword = Password.check(password, benutzerPassword).addPepper("password").with(bcrypt);
+
         nameFeld.setText("");
         passwordFeld.setText("");
 
@@ -95,7 +101,7 @@ public class EingangController {
 
         if (!name.isBlank() && !password.isBlank()) {
             if (bibliothekDatenbankImpl.getBenutzerBeiName(name) != null) {
-                if (checkPassword(name, password) != null && checkPassword(name, password).getPassword().equals(password)) {
+                if (checkPassword) {
                     goToBibliothek(name, password);
                 } else {
                     eingangFehler.setText("Falsches Passwort.");
